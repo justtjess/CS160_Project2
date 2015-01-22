@@ -1,0 +1,311 @@
+./calculator -s < tests/0.scan.calc:
+m = ( number , number , number ) m = m + ( number , number , number ) print m * ( number , number , number ) 
+
+./calculator -s < tests/1.scan.calc:
+m = ( ( number , number , number ) - ( number , number , number ) ) + ( number , number , number ) * ( number , number , number ) - ( number , number , number ) print m 
+
+./calculator -s < tests/2.scan.calc:
+m = ( number , number , number ) x ( ( number , number , number ) - ( number , number , number ) ) * ( number , number , number ) print m * ( number , number , number ) 
+
+./calculator -s < tests/3.scan.calc:
+m = m * m + ( m - m ) x m + ( m + ( number , number , number ) ) - ( number , number , number ) - ( number , number , number ) print m 
+
+./calculator -s < tests/4.scan.calc:
+print ( number , number , number ) * ( number , number , number ) - ( number , number , number ) 
+
+./calculator -s < tests/5.scan.calc:
+print ( number , number , number ) x m x ( number , number , number ) * ( number , number , number ) * ( ( ( number , number , number ) ) ) + ( ( ( number , number , number ) ) ) + m + ( number , number , number ) - ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x m + ( number , number , number ) + ( number , number , number ) + m + ( number , number , number ) + ( ( number , number , number ) ) x ( number , number , number ) * ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( number , number , number ) + ( ( number , number , number ) + ( number , number , number ) + ( number , number , number ) ) * ( number , number , number ) + ( number , number , number ) * m - m + ( number , number , number ) * ( number , number , number ) print ( ( ( number , number , number ) ) - ( number , number , number ) x m * ( number , number , number ) * ( ( number , number , number ) - ( number , number , number ) x ( number , number , number ) * m ) + ( number , number , number ) + ( number , number , number ) ) - ( ( number , number , number ) x ( ( ( number , number , number ) * ( number , number , number ) ) * ( number , number , number ) ) * ( number , number , number ) * ( ( number , number , number ) + ( number , number , number ) + ( number , number , number ) ) - m x ( number , number , number ) * ( number , number , number ) + m + ( number , number , number ) ) - ( number , number , number ) print ( number , number , number ) x m * ( number , number , number ) + ( number , number , number ) + ( number , number , number ) * m * ( ( number , number , number ) x ( number , number , number ) + ( number , number , number ) ) + ( ( number , number , number ) + ( number , number , number ) - ( ( number , number , number ) ) ) * ( number , number , number ) + ( number , number , number ) x ( number , number , number ) * m x ( number , number , number ) print m x ( number , number , number ) + ( number , number , number ) * ( number , number , number ) - m * ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( number , number , number ) * m 
+
+./calculator -s < tests/6.scan.calc:
+print ( ( number , number , number ) ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) - ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( ( number , number , number ) ) - ( ( number , number , number ) ) * ( m ) - ( number , number , number ) + m + ( number , number , number ) + ( number , number , number ) + m x ( number , number , number ) + ( m ) + ( ( number , number , number ) x ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) ) * ( ( ( number , number , number ) ) ) m = ( number , number , number ) + ( m * m x m ) + ( ( number , number , number ) ) - ( ( number , number , number ) ) - m * ( ( number , number , number ) ) m = m - ( ( number , number , number ) + m x ( number , number , number ) * ( number , number , number ) ) + ( number , number , number ) x m - ( number , number , number ) * ( ( number , number , number ) ) * m * ( number , number , number ) x ( number , number , number ) x ( ( number , number , number ) ) * ( number , number , number ) x ( number , number , number ) print ( number , number , number ) * ( m ) * ( ( number , number , number ) ) 
+
+./calculator -s < tests/7.scan.calc:
+print ( number , number , number ) - ( ( number , number , number ) - ( ( ( ( number , number , number ) x ( number , number , number ) ) ) - ( number , number , number ) - ( number , number , number ) ) ) + ( number , number , number ) print ( number , number , number ) * ( m ) + ( number , number , number ) * ( number , number , number ) + ( number , number , number ) * ( ( number , number , number ) ) + m * m + m x ( ( ( number , number , number ) x ( number , number , number ) * m + m + ( number , number , number ) ) ) - m print ( m + ( ( number , number , number ) - ( ( number , number , number ) ) * m ) ) print ( m ) x ( m ) 
+
+./calculator -s < tests/8.scan.calc:
+print m - ( ( number , number , number ) * m ) - ( number , number , number ) x m + ( ( number , number , number ) * ( number , number , number ) ) x ( m ) x ( number , number , number ) * ( number , number , number ) + ( number , number , number ) * ( number , number , number ) - ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) print ( number , number , number ) * ( number , number , number ) x ( number , number , number ) + ( number , number , number ) + ( number , number , number ) * ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) + m m = ( number , number , number ) + m x m - ( number , number , number ) + m x ( ( number , number , number ) ) - ( ( number , number , number ) ) x m + ( number , number , number ) * ( number , number , number ) + ( m ) - m * ( ( number , number , number ) ) - ( number , number , number ) * ( number , number , number ) - ( number , number , number ) * ( number , number , number ) + ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) x ( number , number , number ) + ( number , number , number ) * ( number , number , number ) + m - m - m * ( number , number , number ) x ( number , number , number ) - ( number , number , number ) - ( number , number , number ) - ( number , number , number ) * ( number , number , number ) x ( number , number , number ) * m + ( number , number , number ) - ( number , number , number ) + m + ( number , number , number ) x ( ( number , number , number ) - m + ( number , number , number ) * ( number , number , number ) x ( number , number , number ) * m x ( ( number , number , number ) - ( number , number , number ) * ( number , number , number ) ) x ( number , number , number ) ) + ( number , number , number ) + ( ( number , number , number ) x ( number , number , number ) x ( number , number , number ) ) * m - ( m + ( number , number , number ) ) + ( number , number , number ) x m * ( m - ( number , number , number ) x m + ( number , number , number ) * ( number , number , number ) x ( number , number , number ) ) * ( ( number , number , number ) ) x ( number , number , number ) * ( number , number , number ) x ( number , number , number ) * ( ( number , number , number ) ) + ( number , number , number ) - m * ( number , number , number ) + ( number , number , number ) * m * m x ( ( number , number , number ) ) - ( number , number , number ) x ( ( number , number , number ) ) x ( number , number , number ) m = ( ( number , number , number ) ) + ( number , number , number ) 
+
+./calculator -s < tests/9.scan.calc:
+m = m * ( ( number , number , number ) ) m = ( number , number , number ) x ( m * ( number , number , number ) + m + ( ( number , number , number ) + ( number , number , number ) - m ) - ( number , number , number ) + ( number , number , number ) ) * ( number , number , number ) * ( number , number , number ) x ( number , number , number ) + m * ( ( ( number , number , number ) ) ) * m x ( ( number , number , number ) ) * m m = m x ( ( number , number , number ) ) * ( number , number , number ) * m x ( number , number , number ) + ( number , number , number ) * ( number , number , number ) + m * ( number , number , number ) x m - ( number , number , number ) x ( number , number , number ) + ( ( number , number , number ) ) * ( number , number , number ) + ( number , number , number ) x ( ( number , number , number ) - ( number , number , number ) * ( ( ( number , number , number ) ) ) - ( number , number , number ) ) * ( ( number , number , number ) ) + ( number , number , number ) + m - m * ( number , number , number ) * m + ( number , number , number ) * ( number , number , number ) * m x m x ( number , number , number ) x ( number , number , number ) - ( ( number , number , number ) - m ) * ( ( number , number , number ) ) print ( m ) 
+
+./calculator -s < tests/10.scan.calc:
+print ( ( number , number , number ) + ( number , number , number ) * m ) print ( ( number , number , number ) + ( number , number , number ) + ( number , number , number ) * ( number , number , number ) ) print ( ( ( number , number , number ) - ( number , number , number ) + ( number , number , number ) * ( number , number , number ) x ( number , number , number ) ) ) x ( ( number , number , number ) ) - ( ( number , number , number ) * ( number , number , number ) x ( m + ( ( m ) - m ) ) * ( ( number , number , number ) ) - m + ( number , number , number ) * ( number , number , number ) ) - ( ( number , number , number ) - m ) x m + ( number , number , number ) x ( number , number , number ) - ( number , number , number ) x ( ( number , number , number ) ) * ( number , number , number ) - ( number , number , number ) - ( number , number , number ) x ( number , number , number ) - m print ( ( number , number , number ) * ( number , number , number ) ) 
+
+./calculator -s < tests/11.scan.calc:
+m = m - ( number , number , number ) * ( number , number , number ) + ( number , number , number ) - ( number , number , number ) - ( number , number , number ) + ( number , number , number ) * m - ( number , number , number ) + ( m ) * ( ( number , number , number ) + ( number , number , number ) * ( number , number , number ) * ( number , number , number ) x ( number , number , number ) ) + ( number , number , number ) - ( ( number , number , number ) ) - m x ( ( ( ( number , number , number ) ) ) ) print ( number , number , number ) - ( number , number , number ) x ( ( number , number , number ) + m * ( number , number , number ) * ( ( ( number , number , number ) + ( number , number , number ) ) ) + m * ( number , number , number ) ) + ( m ) * m x ( ( number , number , number ) ) + ( number , number , number ) print ( number , number , number ) + m print ( number , number , number ) + ( number , number , number ) + m + ( number , number , number ) + ( number , number , number ) - ( ( number , number , number ) ) * m + ( number , number , number ) - ( number , number , number ) - ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) x ( number , number , number ) x m * ( number , number , number ) x ( number , number , number ) + m - ( number , number , number ) x ( number , number , number ) print m 
+
+./calculator -s < tests/12.scan.calc:
+print ( number , number , number ) print ( number , number , number ) x ( number , number , number ) x ( number , number , number ) print ( ( number , number , number ) ) print m 
+
+./calculator -s < tests/13.scan.calc:
+print ( m ) m = ( number , number , number ) + ( number , number , number ) - ( number , number , number ) + ( ( number , number , number ) ) + ( number , number , number ) x ( number , number , number ) + m - ( number , number , number ) x ( number , number , number ) * ( number , number , number ) * ( number , number , number ) x ( number , number , number ) + ( ( number , number , number ) ) * ( number , number , number ) - m - ( number , number , number ) * m m = ( ( number , number , number ) ) * ( number , number , number ) * ( m ) + ( number , number , number ) * ( number , number , number ) + ( ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) + ( ( number , number , number ) * ( number , number , number ) x ( number , number , number ) ) ) x ( number , number , number ) * ( number , number , number ) print ( number , number , number ) - ( number , number , number ) + ( ( number , number , number ) x ( number , number , number ) - ( number , number , number ) x ( number , number , number ) x ( number , number , number ) ) - ( ( number , number , number ) ) x ( number , number , number ) - ( number , number , number ) + ( number , number , number ) x ( number , number , number ) x ( number , number , number ) x ( number , number , number ) * ( ( number , number , number ) * ( number , number , number ) ) * ( number , number , number ) x ( ( number , number , number ) + ( number , number , number ) ) + m * m - ( number , number , number ) print ( number , number , number ) + ( number , number , number ) x m * ( ( number , number , number ) ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) + ( number , number , number ) x m - ( number , number , number ) x m - ( number , number , number ) + ( number , number , number ) * ( number , number , number ) x ( number , number , number ) - ( number , number , number ) * m + ( number , number , number ) x ( number , number , number ) x ( number , number , number ) m = ( number , number , number ) x m + ( number , number , number ) 
+
+./calculator -s < tests/14.scan.calc:
+print ( ( number , number , number ) x ( number , number , number ) - ( number , number , number ) x ( number , number , number ) - ( ( number , number , number ) ) + ( number , number , number ) ) print ( ( m ) - ( number , number , number ) - ( number , number , number ) + ( ( number , number , number ) ) + ( number , number , number ) x m - m x ( number , number , number ) * m * ( number , number , number ) - m * ( number , number , number ) * ( number , number , number ) x m * ( number , number , number ) - ( number , number , number ) * ( number , number , number ) x ( number , number , number ) + m x m x m * ( number , number , number ) + ( ( number , number , number ) ) * ( ( number , number , number ) * ( number , number , number ) - ( number , number , number ) * ( number , number , number ) ) + ( ( number , number , number ) * ( number , number , number ) ) ) m = ( number , number , number ) print ( ( ( ( number , number , number ) + ( ( ( number , number , number ) ) * ( number , number , number ) ) x m x ( number , number , number ) * ( number , number , number ) * m x ( m ) + ( number , number , number ) x m * ( number , number , number ) x m ) ) ) + m - ( ( number , number , number ) ) 
+
+./calculator -s < tests/15.scan.calc:
+print ( number , number , number ) x ( ( number , number , number ) - ( number , number , number ) ) + ( number , number , number ) * ( number , number , number ) + ( number , number , number ) x m + ( m x ( number , number , number ) ) * ( ( number , number , number ) + ( number , number , number ) ) - ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) + ( number , number , number ) x m - m print ( ( m x ( number , number , number ) x ( number , number , number ) ) - ( number , number , number ) * ( ( ( m ) ) ) * ( ( number , number , number ) * ( number , number , number ) + m * ( number , number , number ) ) ) print ( number , number , number ) x ( number , number , number ) + ( m x ( ( number , number , number ) ) * ( number , number , number ) - ( number , number , number ) * ( number , number , number ) + ( number , number , number ) ) print ( number , number , number ) + ( number , number , number ) * ( number , number , number ) - ( number , number , number ) x ( number , number , number ) + ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) + ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( number , number , number ) * ( number , number , number ) + m + ( m * ( number , number , number ) + ( number , number , number ) - ( number , number , number ) * ( ( number , number , number ) * ( number , number , number ) x ( number , number , number ) ) * ( number , number , number ) - ( number , number , number ) ) 
+
+./calculator -s < tests/16.scan.calc:
+print ( number , number , number ) x ( ( number , number , number ) - ( number , number , number ) * m - ( number , number , number ) * ( ( m + ( number , number , number ) ) - ( number , number , number ) x m x ( number , number , number ) - ( number , number , number ) + ( number , number , number ) * ( number , number , number ) * ( number , number , number ) ) * ( number , number , number ) + m x m ) * ( ( number , number , number ) ) * ( number , number , number ) * ( number , number , number ) - ( number , number , number ) + ( number , number , number ) * ( ( number , number , number ) + ( number , number , number ) - ( ( number , number , number ) ) ) + ( number , number , number ) - ( number , number , number ) x m m = ( ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) * ( number , number , number ) + ( number , number , number ) - m - ( number , number , number ) - ( number , number , number ) * m x m * ( m x ( number , number , number ) + ( number , number , number ) * ( number , number , number ) + ( number , number , number ) * ( number , number , number ) ) * m x ( number , number , number ) ) print ( m ) - m + ( number , number , number ) print ( ( number , number , number ) + ( number , number , number ) * ( number , number , number ) * m * ( ( number , number , number ) + ( ( ( number , number , number ) x ( number , number , number ) ) ) - m ) x ( ( number , number , number ) x ( number , number , number ) - ( number , number , number ) * m * ( number , number , number ) * m + m - m + m ) + m x ( number , number , number ) + ( number , number , number ) + ( ( number , number , number ) ) - ( number , number , number ) ) m = ( number , number , number ) * ( ( number , number , number ) ) - ( ( number , number , number ) ) + ( ( number , number , number ) + m - ( number , number , number ) + ( number , number , number ) x ( number , number , number ) ) - m x m + m x ( ( ( ( number , number , number ) ) x ( number , number , number ) ) + m + ( number , number , number ) x ( number , number , number ) ) * ( number , number , number ) + ( number , number , number ) - m x ( number , number , number ) - ( number , number , number ) 
+
+./calculator -s < tests/17.scan.calc:
+print m * ( number , number , number ) - ( m * ( number , number , number ) + ( number , number , number ) ) + ( number , number , number ) print m + ( number , number , number ) * ( number , number , number ) - ( number , number , number ) - ( number , number , number ) * m - ( number , number , number ) - ( number , number , number ) x m * ( number , number , number ) m = ( ( number , number , number ) x ( ( number , number , number ) ) x ( number , number , number ) + m + ( number , number , number ) * ( number , number , number ) ) print ( ( number , number , number ) ) x m * ( number , number , number ) * ( ( number , number , number ) x ( number , number , number ) - ( number , number , number ) ) print ( number , number , number ) x m * ( ( m x ( number , number , number ) x ( ( number , number , number ) ) + ( number , number , number ) * ( number , number , number ) + ( number , number , number ) ) + ( number , number , number ) ) * ( number , number , number ) + ( ( number , number , number ) ) + ( number , number , number ) * ( ( number , number , number ) ) x ( number , number , number ) * ( number , number , number ) + m + m - ( number , number , number ) * ( m * ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( number , number , number ) * ( m ) ) * ( m - ( number , number , number ) ) + ( number , number , number ) 
+
+./calculator -s < tests/18.scan.calc:
+m = ( number , number , number ) x ( number , number , number ) - ( number , number , number ) - m - ( number , number , number ) x ( number , number , number ) x ( number , number , number ) + ( number , number , number ) + ( ( number , number , number ) ) - ( number , number , number ) m = ( m + m x ( number , number , number ) - ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * m x ( ( number , number , number ) + ( number , number , number ) * ( number , number , number ) ) - ( number , number , number ) * ( number , number , number ) - ( ( number , number , number ) ) ) x ( number , number , number ) + ( number , number , number ) - m x ( ( number , number , number ) - ( number , number , number ) + ( number , number , number ) ) print m - ( number , number , number ) + ( ( ( number , number , number ) ) ) * m * ( number , number , number ) * ( ( number , number , number ) * ( ( ( number , number , number ) ) + ( number , number , number ) ) ) * ( number , number , number ) * ( m ) - ( number , number , number ) x ( m x m + ( number , number , number ) + ( number , number , number ) ) x ( number , number , number ) * m * ( number , number , number ) * ( ( number , number , number ) ) + ( number , number , number ) + ( number , number , number ) - ( number , number , number ) + ( number , number , number ) + ( number , number , number ) x ( ( ( ( number , number , number ) + m x m - ( number , number , number ) - ( number , number , number ) * ( number , number , number ) - m * m * ( number , number , number ) + ( number , number , number ) ) + ( number , number , number ) * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) ) ) - ( number , number , number ) m = ( number , number , number ) + m * m + ( ( number , number , number ) ) + ( number , number , number ) - ( number , number , number ) + ( number , number , number ) x ( number , number , number ) x ( number , number , number ) * ( m - m - ( number , number , number ) * m + m - ( number , number , number ) + ( ( ( number , number , number ) ) ) ) x ( number , number , number ) + ( number , number , number ) * m - ( number , number , number ) + m - ( number , number , number ) x ( number , number , number ) x ( ( number , number , number ) x ( m ) - ( number , number , number ) + m * m * ( m ) * ( number , number , number ) + ( number , number , number ) ) + ( number , number , number ) + m * ( ( number , number , number ) x ( number , number , number ) * ( number , number , number ) x ( ( ( number , number , number ) ) * m ) - m + ( number , number , number ) ) * ( number , number , number ) x m x m * ( number , number , number ) * m x ( ( number , number , number ) ) - ( number , number , number ) * ( m ) - ( ( number , number , number ) * ( ( number , number , number ) ) ) print ( number , number , number ) + ( m ) - ( number , number , number ) + ( number , number , number ) * ( number , number , number ) x ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) x ( number , number , number ) - ( number , number , number ) - ( ( number , number , number ) x ( number , number , number ) x ( number , number , number ) + ( number , number , number ) ) m = m print ( ( number , number , number ) ) 
+
+./calculator -s < tests/19.scan.calc:
+m = ( ( number , number , number ) ) m = m x ( number , number , number ) * ( number , number , number ) x ( number , number , number ) - ( number , number , number ) * ( number , number , number ) - m + m x m x ( number , number , number ) * ( ( m ) ) - ( number , number , number ) + ( number , number , number ) m = ( m * ( number , number , number ) - ( ( number , number , number ) - m * ( number , number , number ) + ( number , number , number ) - ( number , number , number ) x ( number , number , number ) x m * ( number , number , number ) * ( number , number , number ) * ( number , number , number ) ) x ( number , number , number ) * ( number , number , number ) * ( number , number , number ) x ( number , number , number ) * ( ( number , number , number ) - ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x ( number , number , number ) + ( ( number , number , number ) ) ) - ( ( number , number , number ) * ( number , number , number ) x ( number , number , number ) x m + ( number , number , number ) x m x ( number , number , number ) * ( ( number , number , number ) ) * m - ( number , number , number ) * ( number , number , number ) ) ) x ( number , number , number ) - ( number , number , number ) * m * ( ( number , number , number ) * ( number , number , number ) + m x ( number , number , number ) * ( m - ( number , number , number ) - ( ( number , number , number ) ) + ( number , number , number ) - m * ( number , number , number ) ) ) m = ( number , number , number ) + ( number , number , number ) 
+
+./calculator < tests/0.good.calc:
+No output.
+
+./calculator < tests/1.good.calc:
+No output.
+
+./calculator < tests/2.good.calc:
+No output.
+
+./calculator < tests/3.good.calc:
+No output.
+
+./calculator < tests/4.good.calc:
+No output.
+
+./calculator < tests/5.good.calc:
+No output.
+
+./calculator < tests/6.good.calc:
+No output.
+
+./calculator < tests/7.good.calc:
+No output.
+
+./calculator < tests/8.good.calc:
+No output.
+
+./calculator < tests/9.good.calc:
+No output.
+
+./calculator < tests/10.good.calc:
+No output.
+
+./calculator < tests/11.good.calc:
+No output.
+
+./calculator < tests/12.good.calc:
+No output.
+
+./calculator < tests/13.good.calc:
+No output.
+
+./calculator < tests/14.good.calc:
+No output.
+
+./calculator < tests/15.good.calc:
+No output.
+
+./calculator < tests/16.good.calc:
+No output.
+
+./calculator < tests/17.good.calc:
+No output.
+
+./calculator < tests/18.good.calc:
+No output.
+
+./calculator < tests/19.good.calc:
+No output.
+
+./calculator < tests/20.good.calc:
+No output.
+
+./calculator < tests/21.good.calc:
+No output.
+
+./calculator < tests/22.good.calc:
+No output.
+
+./calculator < tests/23.good.calc:
+No output.
+
+./calculator < tests/24.good.calc:
+No output.
+
+./calculator < tests/25.good.calc:
+No output.
+
+./calculator < tests/26.good.calc:
+No output.
+
+./calculator < tests/27.good.calc:
+No output.
+
+./calculator < tests/28.good.calc:
+No output.
+
+./calculator < tests/29.good.calc:
+No output.
+
+./calculator < tests/30.good.calc:
+No output.
+
+./calculator < tests/31.good.calc:
+No output.
+
+./calculator < tests/32.good.calc:
+No output.
+
+./calculator < tests/33.good.calc:
+No output.
+
+./calculator < tests/34.good.calc:
+No output.
+
+./calculator < tests/0.bad.calc:
+Parse error: expected = found ( at line 1
+
+./calculator < tests/1.bad.calc:
+Parse error: expected , found ) at line 1
+
+./calculator < tests/2.bad.calc:
+Scan error: found invalid character q at line 1
+
+./calculator < tests/3.bad.calc:
+Parse error: found invalid token ) at line 2
+
+./calculator < tests/4.bad.calc:
+Parse error: found invalid token * at line 1
+
+./calculator < tests/5.bad.calc:
+Scan error: found invalid character n at line 2
+
+./calculator < tests/6.bad.calc:
+Parse error: expected , found number at line 1
+
+./calculator < tests/7.bad.calc:
+Parse error: found invalid token ( at line 1
+
+./calculator < tests/8.bad.calc:
+Parse error: expected , found + at line 1
+
+./calculator < tests/9.bad.calc:
+Parse error: found invalid token ( at line 1
+
+./calculator < tests/10.bad.calc:
+Parse error: found invalid token ( at line 1
+
+./calculator < tests/11.bad.calc:
+Parse error: found invalid token ) at line 4
+
+./calculator < tests/12.bad.calc:
+Parse error: expected , found m at line 2
+
+./calculator < tests/13.bad.calc:
+Parse error: found invalid token - at line 2
+
+./calculator < tests/14.bad.calc:
+Parse error: expected ) found , at line 3
+
+./calculator < tests/15.bad.calc:
+Scan error: found invalid character n at line 3
+
+./calculator < tests/16.bad.calc:
+Parse error: found invalid token ( at line 1
+
+./calculator < tests/17.bad.calc:
+Parse error: expected number found ( at line 4
+
+./calculator < tests/18.bad.calc:
+Parse error: expected number found , at line 2
+
+./calculator < tests/19.bad.calc:
+Parse error: expected , found m at line 2
+
+./calculator < tests/20.bad.calc:
+Parse error: found invalid token ) at line 3
+
+./calculator < tests/21.bad.calc:
+Parse error: expected = found - at line 4
+
+./calculator < tests/22.bad.calc:
+Parse error: found invalid token ) at line 1
+
+./calculator < tests/23.bad.calc:
+Parse error: found invalid token + at line 1
+
+./calculator < tests/24.bad.calc:
+Parse error: expected = found + at line 2
+
+./calculator -e < tests/0.eval.calc:
+(4, 8, 12)
+
+./calculator -e < tests/1.eval.calc:
+(1, 16, 1)
+
+./calculator -e < tests/2.eval.calc:
+(732, -2616, 2024)
+
+./calculator -e < tests/3.eval.calc:
+(-1, -2, -3)
+
+./calculator -e < tests/4.eval.calc:
+(7, 12, -6)
+
+./calculator -e < tests/5.eval.calc:
+Semantic error: number -2705953824 out of bounds at line 2
+
+./calculator -e < tests/6.eval.calc:
+Semantic error: number -3315921030675 out of bounds at line 3
+
+./calculator -e < tests/7.eval.calc:
+(-210764, -234826, -314903)
+
+./calculator -e < tests/8.eval.calc:
+Semantic error: number 6872860312 out of bounds at line 2
+
+./calculator -e < tests/9.eval.calc:
+Semantic error: number -735936590998980 out of bounds at line 2
+
+./calculator -e < tests/10.eval.calc:
+(-2506, -2244, -1957)
+(24184536, 164371341, -20853640)
+(35, 27, 29)
+
+./calculator -e < tests/11.eval.calc:
+(69, 9, 154)
+(107107677, -131141629, 186126393)
+
+./calculator -e < tests/12.eval.calc:
+(95428, 87656, -161112)
+(0, 0, 0)
+(1141, -2528, -273)
+(0, 0, 0)
+
+./calculator -e < tests/13.eval.calc:
+(0, 0, 0)
+(199723, 6379896, -1847016)
+
+./calculator -e < tests/14.eval.calc:
+Semantic error: number 6487813525 out of bounds at line 2
+
+./calculator -e < tests/15.eval.calc:
+Semantic error: number -2342144970 out of bounds at line 4
+
+./calculator -e < tests/16.eval.calc:
+(72, 90, 53)
+(-370756, -296725, 1008773)
+
+./calculator -e < tests/17.eval.calc:
+(-31680, 205160, -596670)
+
+./calculator -e < tests/18.eval.calc:
+Semantic error: number 2502345840 out of bounds at line 3
+
+./calculator -e < tests/19.eval.calc:
+(95, 43, 56)
+(-3597, 5989, 4628)
+(-703, 3502, -2709)
+(-8610607, 6113079, 12293052)
+
