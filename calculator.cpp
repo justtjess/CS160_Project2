@@ -110,8 +110,14 @@ class Scanner {
         // required by the project description, but you may need it to complete
         // your implementation.
         // WRITEME
+        Scanner();
 
 };
+
+Scanner::Scanner(){
+    lineNum = 1;
+    lastNum = 0;
+}
 
 token Scanner::nextToken() {
     // This is a placeholder token, you will need to replace this code
@@ -183,7 +189,7 @@ void Scanner::eatToken(token toConsume) {
 
     char c;
 
-    switch(toConsume){
+ switch(toConsume){
         case T_PLUS:
         case T_MINUS:
         case T_MULTIPLY:
@@ -263,10 +269,9 @@ int Scanner::getNumberValue() {
     // will be used when evaluating expressions.
     
     // WRITEME
-    int num;
-
-    num = stoi(s);
-    return num;
+    lastNum = stoi(s);
+    
+    return lastNum;
 }
 
 
@@ -284,6 +289,17 @@ class Parser {
         
         // You will need to add more methods for handling nonterminal symbols here.
         void Start();
+        void A();
+        void B();
+        void B1();
+        void E();
+        void E1();
+        void T();
+        void T1();
+        void K();
+        void K1();
+        void P();
+        void P1();
         
     public:
         void parse();
@@ -305,18 +321,250 @@ void Parser::Start() {
     // which accepts infinite numbers of T_PLUS. You will need to
     // replace this with correct code for the real grammar start symbol.
     
-    switch (scanner.nextToken()) {
-        case T_PLUS:
-            scanner.eatToken(T_PLUS);
-            Start();
+    A();
+}
+
+void Parser::A(){
+    B();
+    B1();
+}
+
+void Parser::B1(){
+    //std::cout << "B1" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_PRINT:
+            B();
+            B1();
+            break;
+        case T_M:
+            B();
+            B1();
             break;
         case T_EOF:
             break;
         default:
-            parseError(scanner.lineNumber(), scanner.nextToken());
+            //std::cout << tokenToString(scanner.nextToken()) << std::endl;
+            parseError(scanner.Scanner::lineNumber(), scanner.nextToken());
+            break;
+    }    
+}
+
+void Parser::B(){
+
+    //std::cout << "B" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_M:
+            ///std::cout << "hehehe " << std::endl;
+            scanner.eatToken(scanner.nextToken());
+            if(scanner.nextToken() == T_EQUALS){
+                scanner.eatToken(scanner.nextToken());
+                E();
+                break;
+            }
+            else
+
+                mismatchError(scanner.Scanner::lineNumber(),T_EQUALS ,scanner.nextToken());
+        case T_PRINT:
+            scanner.eatToken(scanner.nextToken());
+            E();
+            break;
+        default:
+
+            parseError(scanner.Scanner::lineNumber(), scanner.nextToken());
+    }
+
+
+
+    // if(scanner.nextToken() == T_M){
+    //     scanner.eatToken(scanner.nextToken());
+    //     if(scanner.nextToken() == T_EQUALS){
+    //         scanner.eatToken(scanner.nextToken());
+    //         E();
+    //     }
+    //     else
+    // }
+    // else if(scanner.nextToken() == T_PRINT){
+    //     scanner.eatToken(scanner.nextToken());
+    //     E();
+    // }
+    // else{
+    //     std::cout << tokenToString(scanner.nextToken()) << std::endl;
+    //     parseError(scanner.Scanner::lineNumber(), scanner.nextToken());
+    // }
+}
+
+void Parser::E(){
+    //std::cout << "E" << std::endl; 
+    T();
+    E1();
+}
+
+void Parser::E1(){
+    //std::cout << "E1" << std::endl; 
+
+    //std::cout << tokenToString(scanner.nextToken()) << std::endl;
+    switch(scanner.nextToken()){
+        case T_PLUS:
+            scanner.eatToken(scanner.nextToken());
+            T();
+            E1();
+            break;
+        case T_MINUS:
+            scanner.eatToken(scanner.nextToken());
+            T();
+            E1();
+            break;
+        case T_EOF:
+            break;
+        case T_M:
+            break;
+        case T_PRINT:
+            break; ////POSSIBLE ERROR!!
+        case T_CLOSEPAREN:
+            break; ////POSSIBLE ERROR!!
+        default:
+            //std::cout << tokenToString(scanner.nextToken()) << std::endl;
+            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
+    }
+}
+
+void Parser::T(){
+    //std::cout << "T" << std::endl; 
+    K();
+    T1();
+}
+
+void Parser::T1(){
+    //std::cout << "T1" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_CROSS:
+            scanner.eatToken(scanner.nextToken());
+            K();
+            T1();
+            break;
+        case T_EOF:
+            break;
+        case T_PLUS:
+            break;
+        case T_M:
+            break;
+        case T_MINUS:
+            break;
+        case T_CLOSEPAREN: ////POSSIBLE ERROR!!
+            break;
+        case T_PRINT: ////POSSIBLE ERROR!!
+            break;
+        default:
+
+            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
+    }
+}
+
+void Parser::K(){
+    //std::cout << "K" << std::endl; 
+    P();
+    K1();
+}
+
+void Parser::K1(){
+    //std::cout << "K1" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_MULTIPLY:
+            scanner.eatToken(scanner.nextToken());
+            P();
+            K1();
+            break;
+        case T_EOF:
+            break;
+        case T_CROSS:
+            break;
+        case T_PRINT:
+            break;
+        case T_PLUS:
+           break;
+        case T_MINUS:
+           break;
+        case T_CLOSEPAREN: ////POSSIBLE ERROR!!
+           break;
+        case T_M:
+            break;
+        default:
+            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
             break;
     }
 }
+
+void Parser::P(){
+    //std::cout << "P" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_M:
+            //std::cout << "P M" << std::endl; 
+            scanner.eatToken(scanner.nextToken());
+            break;
+        case T_OPENPAREN:
+            scanner.eatToken(scanner.nextToken());
+            P1();
+            break;
+        default:
+            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
+    }
+}
+
+void Parser::P1(){
+    //std::cout << "P1" << std::endl; 
+    switch(scanner.nextToken()){
+        case T_NUMBER:
+            scanner.eatToken(scanner.nextToken());
+            if(scanner.nextToken() == T_COMMA){
+                scanner.eatToken(scanner.nextToken());
+                if(scanner.nextToken() == T_NUMBER){
+                    scanner.eatToken(scanner.nextToken());
+                    if(scanner.nextToken() == T_COMMA){
+                        scanner.eatToken(scanner.nextToken());
+                        if(scanner.nextToken() == T_NUMBER){
+                            scanner.eatToken(scanner.nextToken());    
+                            if(scanner.nextToken() == T_CLOSEPAREN){
+                                scanner.eatToken(scanner.nextToken());
+                                break;
+                            }
+                            else{
+                                mismatchError(scanner.Scanner::lineNumber(),T_CLOSEPAREN,scanner.nextToken());
+                            }
+                        }
+                        else
+                            mismatchError(scanner.Scanner::lineNumber(),T_NUMBER , scanner.nextToken());
+                    }
+                    else
+                        mismatchError(scanner.Scanner::lineNumber(),T_COMMA,scanner.nextToken());
+                }
+                else
+                    mismatchError(scanner.Scanner::lineNumber(),T_NUMBER , scanner.nextToken());
+            }
+            else
+                mismatchError(scanner.Scanner::lineNumber(),T_COMMA,scanner.nextToken());
+            break;
+        case T_M:
+            E();
+            if(scanner.nextToken() == T_CLOSEPAREN){
+                scanner.eatToken(scanner.nextToken());
+                break;
+            }
+            else
+                mismatchError(scanner.Scanner::lineNumber(), T_CLOSEPAREN, scanner.nextToken());
+        case T_OPENPAREN:
+            E();
+            if(scanner.nextToken() == T_CLOSEPAREN){
+                scanner.eatToken(scanner.nextToken());
+                break;
+            }
+            else
+                mismatchError(scanner.Scanner::lineNumber(), T_CLOSEPAREN, scanner.nextToken());
+
+        default:
+            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
+    }
+}
+
 
 
 int main(int argc, char* argv[]) {
