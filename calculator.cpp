@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <limits>
-
+using namespace std;
 
 // This is a struct that defines a 3D vector for use in calculation.
 typedef struct vector {
@@ -211,7 +211,8 @@ void Scanner::eatToken(token toConsume) {
                                 std::cin.get(c);
                                 if(c == 'n'){
                                     std::cin.get(c);
-                                    if(c == 't'){}
+                                    if(c == 't'){
+                                    }
                                     else{
                                         //std::cout << "error2\n";
                                         scanError(lineNumber(),c);
@@ -243,12 +244,14 @@ void Scanner::eatToken(token toConsume) {
                     }
             break;
         case T_NUMBER:
+            s = "";
             std::cin.get(c);
             s.push_back(c);
             while(std::cin.peek() >= '0' && std::cin.peek() <= '9'){
                 std::cin.get(c);
                 s.push_back(c);
             }
+            lastNum = stoi(s);
             break;
         case T_EOF:
             break;
@@ -268,12 +271,12 @@ int Scanner::getNumberValue() {
     // with code to return the last number value that was scanned. This
     // will be used when evaluating expressions.
     
-    // WRITEME
-    lastNum = stoi(s);
-    
+    // WRITEME    
     return lastNum;
 }
 
+Vector v;
+Vector m;
 
 class Parser {
     // You are allowed to private fields to the parser, and this may be
@@ -293,11 +296,11 @@ class Parser {
         void B();
         void B1();
         void E();
-        void E1();
+        void E1(Vector v_c);
         void T();
-        void T1();
+        void T1(Vector v_c);
         void K();
-        void K1();
+        void K1(Vector v_c);
         void P();
         void P1();
         
@@ -312,6 +315,7 @@ class Parser {
 void Parser::parse() {
     // This is the entry point for the parser, which simply starts parsing
     // the grammar by calling the function for the start symbol.
+    m = {.x = 0, .y = 0, .z = 0};
     Start();
 }
 
@@ -359,6 +363,9 @@ void Parser::B(){
             if(scanner.nextToken() == T_EQUALS){
                 scanner.eatToken(scanner.nextToken());
                 E();
+                m.x = v.x;
+                m.y = v.y;
+                m.z = v.z;
                 break;
             }
             else
@@ -367,6 +374,8 @@ void Parser::B(){
         case T_PRINT:
             scanner.eatToken(scanner.nextToken());
             E();
+            if (evaluate == true)
+                std::cout << "(" << v.x << ", " << v.y << ", " << v.z << ")" << std::endl;
             break;
         default:
 
@@ -396,10 +405,10 @@ void Parser::B(){
 void Parser::E(){
     //std::cout << "E" << std::endl; 
     T();
-    E1();
+    E1(v);
 }
 
-void Parser::E1(){
+void Parser::E1(Vector v_c){
     //std::cout << "E1" << std::endl; 
 
     //std::cout << tokenToString(scanner.nextToken()) << std::endl;
@@ -407,12 +416,18 @@ void Parser::E1(){
         case T_PLUS:
             scanner.eatToken(scanner.nextToken());
             T();
-            E1();
+            v.x += v_c.x;
+            v.y += v_c.y;
+            v.z += v_c.z;
+            E1(v);
             break;
         case T_MINUS:
             scanner.eatToken(scanner.nextToken());
             T();
-            E1();
+            v.x = v_c.x - v.x;
+            v.y = v_c.y -v.y;
+            v.z = v_c.z -v.z;
+            E1(v);            
             break;
         case T_EOF:
             break;
@@ -431,16 +446,24 @@ void Parser::E1(){
 void Parser::T(){
     //std::cout << "T" << std::endl; 
     K();
-    T1();
+    T1(v);
 }
 
-void Parser::T1(){
+void Parser::T1(Vector v_c){
     //std::cout << "T1" << std::endl; 
+    Vector tmp;
     switch(scanner.nextToken()){
         case T_CROSS:
             scanner.eatToken(scanner.nextToken());
             K();
-            T1();
+            tmp.x = v.x;
+            tmp.y = v.y; 
+            tmp.z = v.z;
+            v.x = (v_c.y * tmp.z) - (v_c.z * tmp.y);
+            v.y = (v_c.z * tmp.x) - (v_c.x * tmp.z);
+            v.z = (v_c.x * tmp.y) - (v_c.y * tmp.x);
+            T1(v);
+            // v.x = v.y * v_c.z - v.z * v_c.y;
             break;
         case T_EOF:
             break;
@@ -463,16 +486,19 @@ void Parser::T1(){
 void Parser::K(){
     //std::cout << "K" << std::endl; 
     P();
-    K1();
+    K1(v);
 }
 
-void Parser::K1(){
+void Parser::K1(Vector v_c){
     //std::cout << "K1" << std::endl; 
     switch(scanner.nextToken()){
         case T_MULTIPLY:
             scanner.eatToken(scanner.nextToken());
             P();
-            K1();
+            v.x *= v_c.x;
+            v.y *= v_c.y;
+            v.z *= v_c.z;
+            K1(v);
             break;
         case T_EOF:
             break;
@@ -499,6 +525,9 @@ void Parser::P(){
     switch(scanner.nextToken()){
         case T_M:
             //std::cout << "P M" << std::endl; 
+            v.x = m.x;
+            v.y = m.y;
+            v.z = m.z;
             scanner.eatToken(scanner.nextToken());
             break;
         case T_OPENPAREN:
@@ -515,14 +544,17 @@ void Parser::P1(){
     switch(scanner.nextToken()){
         case T_NUMBER:
             scanner.eatToken(scanner.nextToken());
+            v.x = scanner.getNumberValue();
             if(scanner.nextToken() == T_COMMA){
                 scanner.eatToken(scanner.nextToken());
                 if(scanner.nextToken() == T_NUMBER){
                     scanner.eatToken(scanner.nextToken());
+                    v.y = scanner.getNumberValue();
                     if(scanner.nextToken() == T_COMMA){
                         scanner.eatToken(scanner.nextToken());
                         if(scanner.nextToken() == T_NUMBER){
-                            scanner.eatToken(scanner.nextToken());    
+                            scanner.eatToken(scanner.nextToken()); 
+                            v.z = scanner.getNumberValue();   
                             if(scanner.nextToken() == T_CLOSEPAREN){
                                 scanner.eatToken(scanner.nextToken());
                                 break;
@@ -543,25 +575,16 @@ void Parser::P1(){
             else
                 mismatchError(scanner.Scanner::lineNumber(),T_COMMA,scanner.nextToken());
             break;
-        case T_M:
-            E();
-            if(scanner.nextToken() == T_CLOSEPAREN){
-                scanner.eatToken(scanner.nextToken());
-                break;
-            }
-            else
-                mismatchError(scanner.Scanner::lineNumber(), T_CLOSEPAREN, scanner.nextToken());
-        case T_OPENPAREN:
-            E();
-            if(scanner.nextToken() == T_CLOSEPAREN){
-                scanner.eatToken(scanner.nextToken());
-                break;
-            }
-            else
-                mismatchError(scanner.Scanner::lineNumber(), T_CLOSEPAREN, scanner.nextToken());
-
         default:
-            parseError(scanner.Scanner::lineNumber(),scanner.nextToken());
+            E();
+            if(scanner.nextToken() == T_CLOSEPAREN){
+                scanner.eatToken(scanner.nextToken());
+                break;
+            }
+            else{
+                mismatchError(scanner.Scanner::lineNumber(), T_CLOSEPAREN, scanner.nextToken());
+            }
+            break;
     }
 }
 
