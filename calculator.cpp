@@ -320,8 +320,10 @@ int Parser::checkBounds(long i){
         return 1;
     }
     else{
-        cout << "Semantic error: number " << i << " out of bounds at line " << scanner.Scanner::lineNumber() << endl;
-        exit(1);
+        if(evaluate == true){
+            cout << "Semantic error: number " << i << " out of bounds at line " << scanner.Scanner::lineNumber() << endl;
+            exit(1);
+        }
     }
 }
 
@@ -444,13 +446,13 @@ void Parser::E1(Vector v_c){
         case T_MINUS:
             scanner.eatToken(scanner.nextToken());
             T();
-            newX = (long) v.x - v_c.x;
+            newX = (long) v_c.x - v.x;
             checkBounds(newX);
             v.x = newX;
-            newY = (long) v.y - v_c.y;
+            newY = (long) v_c.y - v.y;
             checkBounds(newY);
             v.y = newY;
-            newZ = (long) v.z - v_c.z;
+            newZ = (long) v_c.z - v.z;
             checkBounds(newZ);
             v.z = newZ;
             E1(v);            
@@ -478,6 +480,9 @@ void Parser::T(){
 void Parser::T1(Vector v_c){
     //std::cout << "T1" << std::endl; 
     Vector tmp;
+    long newX = 0;
+    long newY = 0;
+    long newZ = 0;
     switch(scanner.nextToken()){
         case T_CROSS:
             scanner.eatToken(scanner.nextToken());
@@ -485,9 +490,15 @@ void Parser::T1(Vector v_c){
             tmp.x = v.x;
             tmp.y = v.y; 
             tmp.z = v.z;
-            v.x = (v_c.y * tmp.z) - (v_c.z * tmp.y);
-            v.y = (v_c.z * tmp.x) - (v_c.x * tmp.z);
-            v.z = (v_c.x * tmp.y) - (v_c.y * tmp.x);
+            newX =  ((long) v_c.y * tmp.z) -  ((long)v_c.z * tmp.y);
+            checkBounds(newX);
+            v.x = newX;
+            newY =  ((long) v_c.z * tmp.x) -  ((long) v_c.x * tmp.z);
+            checkBounds(newY);
+            v.y = newY;
+            newZ =  ((long) v_c.x * tmp.y) -  ((long) v_c.y * tmp.x);
+            checkBounds(newZ);            
+            v.z = newZ;
             T1(v);
             // v.x = v.y * v_c.z - v.z * v_c.y;
             break;
@@ -517,13 +528,22 @@ void Parser::K(){
 
 void Parser::K1(Vector v_c){
     //std::cout << "K1" << std::endl; 
+    long newX = 0;
+    long newY = 0;
+    long newZ = 0;
     switch(scanner.nextToken()){
         case T_MULTIPLY:
             scanner.eatToken(scanner.nextToken());
             P();
-            v.x *= v_c.x;
-            v.y *= v_c.y;
-            v.z *= v_c.z;
+            newX = (long) v.x * v_c.x;
+            checkBounds(newX);
+            v.x = newX;
+            newY = (long) v.y * v_c.y;
+            checkBounds(newY);
+            v.y = newY;
+            newZ = (long) v.z * v_c.z;
+            checkBounds(newZ);
+            v.z = newZ;
             K1(v);
             break;
         case T_EOF:
