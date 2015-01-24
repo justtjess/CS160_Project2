@@ -303,14 +303,27 @@ class Parser {
         void K1(Vector v_c);
         void P();
         void P1();
+
         
     public:
         void parse();
-        
+
+        int checkBounds(long i);
+
         Parser(bool evaluate) : evaluate(evaluate) {
             // You may need to complete a Parser constructor here
         }
 };
+
+int Parser::checkBounds(long i){
+    if (i <= INT_MAX){
+        return 1;
+    }
+    else{
+        cout << "Semantic error: number " << i << " out of bounds at line " << scanner.Scanner::lineNumber() << endl;
+        exit(1);
+    }
+}
 
 void Parser::parse() {
     // This is the entry point for the parser, which simply starts parsing
@@ -369,7 +382,6 @@ void Parser::B(){
                 break;
             }
             else
-
                 mismatchError(scanner.Scanner::lineNumber(),T_EQUALS ,scanner.nextToken());
         case T_PRINT:
             scanner.eatToken(scanner.nextToken());
@@ -410,23 +422,37 @@ void Parser::E(){
 
 void Parser::E1(Vector v_c){
     //std::cout << "E1" << std::endl; 
-
+    long newX = 0;
+    long newY = 0;
+    long newZ = 0;
     //std::cout << tokenToString(scanner.nextToken()) << std::endl;
     switch(scanner.nextToken()){
         case T_PLUS:
             scanner.eatToken(scanner.nextToken());
             T();
-            v.x += v_c.x;
-            v.y += v_c.y;
-            v.z += v_c.z;
+            newX = (long) v.x + v_c.x;
+            checkBounds(newX);
+            v.x = newX;
+            newY = (long) v.y + v_c.y;
+            checkBounds(newY);
+            v.y = newY;
+            newZ = (long) v.z + v_c.z;
+            checkBounds(newZ);
+            v.z = newZ;
             E1(v);
             break;
         case T_MINUS:
             scanner.eatToken(scanner.nextToken());
             T();
-            v.x = v_c.x - v.x;
-            v.y = v_c.y -v.y;
-            v.z = v_c.z -v.z;
+            newX = (long) v.x - v_c.x;
+            checkBounds(newX);
+            v.x = newX;
+            newY = (long) v.y - v_c.y;
+            checkBounds(newY);
+            v.y = newY;
+            newZ = (long) v.z - v_c.z;
+            checkBounds(newZ);
+            v.z = newZ;
             E1(v);            
             break;
         case T_EOF:
